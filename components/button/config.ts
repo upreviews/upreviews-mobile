@@ -14,7 +14,7 @@ export const sizeStyles: Record<SizeVariant, ButtonStyle> = {
   },
   large: {
     view: { paddingHorizontal: 16, height: 64 },
-    text: { fontSize: 22, fontWeight: "500" },
+    text: { fontSize: 20, fontWeight: "500" },
   },
 };
 

@@ -5,8 +5,8 @@ import { StyleSheet, View } from "react-native";
 export default function OnboardingPage() {
   return (
     <View style={styles.container}>
-      <Text>Onboarding Page</Text>
-      <Button size="large" appearance="secondary" rounded="large">
+      <Text style={styles.title}>Onboarding Page</Text>
+      <Button size="large" appearance="primary" rounded="large">
         Login
       </Button>
     </View>
@@ -19,5 +19,9 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     justifyContent: "center",
     padding: 20,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: "400",
   },
 });
