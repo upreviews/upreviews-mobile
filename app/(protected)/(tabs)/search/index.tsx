@@ -1,7 +1,8 @@
+import Text from "@/components/text";
 import { useColors } from "@/hooks/use-colors";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
-export default function HomeTab() {
+export default function SearchTab() {
   const colors = useColors();
 
   return (
@@ -13,7 +14,7 @@ export default function HomeTab() {
         alignItems: "center",
       }}
     >
-      <Text style={{ color: colors.foreground }}>Home</Text>
+      <Text style={{ color: colors.foreground }}>Search Tab</Text>
     </View>
   );
 }
