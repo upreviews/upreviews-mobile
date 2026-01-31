@@ -1,14 +1,14 @@
 import { GlassView } from "expo-glass-effect";
 import { FC } from "react";
 import {
-    StyleProp,
-    TouchableOpacity,
-    TouchableOpacityProps,
-    View,
-    ViewStyle,
+  StyleProp,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  View,
+  ViewStyle,
 } from "react-native";
 import Text from "../text";
-import { appearanceStyles, roundedStyle, sizeStyles } from "./config";
+import { roundedStyle, sizeStyles, useAppearanceStyles } from "./config";
 import { AppearanceVariant, RoundedVariant, SizeVariant } from "./types";
 
 interface ButtonProps extends TouchableOpacityProps {
@@ -26,7 +26,10 @@ export function Button({
   children,
   ...props
 }: ButtonProps) {
+  const appearanceStyles = useAppearanceStyles();
+
   const Wrapper = glassView ? WithGlassView : WithoutGlassView;
+
   return (
     <TouchableOpacity activeOpacity={1} {...props}>
       <Wrapper

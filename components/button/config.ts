@@ -1,3 +1,4 @@
+import { useColors } from "@/hooks/use-colors";
 import { TextStyle, ViewStyle } from "react-native";
 import { AppearanceVariant, RoundedVariant, SizeVariant } from "./types";
 
@@ -18,20 +19,24 @@ export const sizeStyles: Record<SizeVariant, ButtonStyle> = {
   },
 };
 
-export const appearanceStyles: Record<AppearanceVariant, ButtonStyle> = {
-  default: {
-    view: { backgroundColor: "transparent" },
-    text: { color: "#000000" },
-  },
-  primary: {
-    view: { backgroundColor: "#e82251" },
-    text: { color: "#ffffff" },
-  },
-  secondary: {
-    view: { backgroundColor: "#6c757d" },
-    text: { color: "#ffffff" },
-  },
-};
+export function useAppearanceStyles(): Record<AppearanceVariant, ButtonStyle> {
+  const colors = useColors();
+
+  return {
+    default: {
+      view: { backgroundColor: "transparent" },
+      text: { color: colors.foreground },
+    },
+    primary: {
+      view: { backgroundColor: colors.primary },
+      text: { color: "#ffffff" },
+    },
+    secondary: {
+      view: { backgroundColor: "#6c757d" },
+      text: { color: "#ffffff" },
+    },
+  };
+}
 
 export const roundedStyle: Record<RoundedVariant, ViewStyle> = {
   none: { borderRadius: 0 },

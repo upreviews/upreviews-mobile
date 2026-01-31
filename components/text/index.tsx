@@ -1,10 +1,15 @@
+import { useColors } from "@/hooks/use-colors";
 import React from "react";
 import { Text as RNText, StyleSheet, TextProps } from "react-native";
 
 interface TProps extends TextProps {}
 
 const Text = React.forwardRef<RNText, TProps>(({ style, ...props }, ref) => {
-  const aggregatedStyle = StyleSheet.flatten([{ fontSize: 16 }, style]);
+  const colors = useColors();
+  const aggregatedStyle = StyleSheet.flatten([
+    { fontSize: 16, color: colors.foreground },
+    style,
+  ]);
 
   const weight = {
     "100": "DMSans-Thin",
@@ -35,8 +40,8 @@ const Text = React.forwardRef<RNText, TProps>(({ style, ...props }, ref) => {
     <RNText
       ref={ref}
       style={[
-        aggregatedStyle,
         { fontFamily: weight[aggregatedStyle.fontWeight || "400"] },
+        aggregatedStyle,
       ]}
       {...props}
     />
