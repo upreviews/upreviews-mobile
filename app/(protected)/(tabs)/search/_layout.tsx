@@ -4,7 +4,7 @@ export default function SearchLayout() {
   return (
     <Stack
       screenOptions={{
-        header: () => null,
+        headerBlurEffect: "prominent",
         headerSearchBarOptions: {
           placement: "automatic",
           placeholder: "Search",

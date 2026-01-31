@@ -13,19 +13,27 @@ export default function TabLayout() {
   return (
     <NativeTabs backBehavior="none" tintColor={colors.primary}>
       <NativeTabs.Trigger name="index">
-        <Icon src={<VectorIcon family={PhosphorIcon} name="home" />} />
+        <Icon src={<VectorIcon family={PhosphorIcon} name="HouseSimple" />} />
         <Label>Home</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="movies">
-        <Icon src={<VectorIcon family={PhosphorIcon} name="film-reel" />} />
+        <Icon src={<VectorIcon family={PhosphorIcon} name="FilmReel" />} />
         <Label>Movies</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="tv">
-        <Icon src={<VectorIcon family={PhosphorIcon} name="television" />} />
+        <Icon src={<VectorIcon family={PhosphorIcon} name="Television" />} />
         <Label>Series</Label>
       </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="corners">
+        <Icon
+          src={<VectorIcon family={PhosphorIcon} name="ChatTeardropText" />}
+        />
+        <Label>Corners</Label>
+      </NativeTabs.Trigger>
       <NativeTabs.Trigger name="search" role="search">
-        <Icon src={<VectorIcon family={PhosphorIcon} name="search" />} />
+        <Icon
+          src={<VectorIcon family={PhosphorIcon} name="MagnifyingGlass" />}
+        />
         <Label>Search</Label>
       </NativeTabs.Trigger>
     </NativeTabs>

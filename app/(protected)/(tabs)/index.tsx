@@ -1,5 +1,6 @@
+import Text from "@/components/text";
 import { useColors } from "@/hooks/use-colors";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 export default function HomeTab() {
   const colors = useColors();

@@ -2,7 +2,7 @@ import Text from "@/components/text";
 import { useColors } from "@/hooks/use-colors";
 import { View } from "react-native";
 
-export default function SeriesTab() {
+export default function CornersTab() {
   const colors = useColors();
 
   return (
@@ -14,7 +14,7 @@ export default function SeriesTab() {
         alignItems: "center",
       }}
     >
-      <Text style={{ color: colors.foreground }}>Series Tab</Text>
+      <Text style={{ color: colors.foreground }}>Corners Tab</Text>
     </View>
   );
 }
