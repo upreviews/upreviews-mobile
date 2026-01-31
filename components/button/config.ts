@@ -10,7 +10,7 @@ export const sizeStyles: Record<SizeVariant, ButtonStyle> = {
     text: { fontSize: 16 },
   },
   medium: {
-    view: { paddingHorizontal: 12, height: 52 },
+    view: { paddingHorizontal: 12, height: 56 },
     text: { fontSize: 18, fontWeight: "500" },
   },
   large: {
@@ -41,7 +41,7 @@ export function useAppearanceStyles(): Record<AppearanceVariant, ButtonStyle> {
 export const roundedStyle: Record<RoundedVariant, ViewStyle> = {
   none: { borderRadius: 0 },
   small: { borderRadius: 4 },
-  medium: { borderRadius: 8 },
+  medium: { borderRadius: 10 },
   large: { borderRadius: 16 },
   full: { borderRadius: 9999 },
 };

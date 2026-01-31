@@ -1,5 +1,8 @@
 export const colors = {
   light: {
+    white: "#FFFFFF",
+    black: "#000000",
+
     background: "#FFFFFF",
     foreground: "#000000",
     mutedForeground: "#80868B",
@@ -13,6 +16,9 @@ export const colors = {
     surface5: "#CED4DA",
   },
   dark: {
+    white: "#FFFFFF",
+    black: "#000000",
+
     background: "#000000",
     foreground: "#FFFFFF",
     mutedForeground: "#9AA0A6",

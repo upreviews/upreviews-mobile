@@ -1,10 +1,11 @@
 import { Button } from "@/components/button";
+import { Screen } from "@/components/screen";
 import Text from "@/components/text";
 import { useColors } from "@/hooks/use-colors";
 import { Link } from "expo-router";
 import { Dimensions, StyleSheet, View } from "react-native";
-import Animated from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { LoginForm } from "./form";
 
 const { height } = Dimensions.get("window");
 
@@ -13,9 +14,11 @@ export function LoginPageComponent() {
   const { top, bottom } = useSafeAreaInsets();
 
   return (
-    <Animated.ScrollView
-      style={[styles.container, { backgroundColor: colors.background }]}
+    <Screen
+      showsVerticalScrollIndicator={false}
       contentContainerStyle={{ flexGrow: 1 }}
+      safeareaTop={false}
+      safeareaBottom={false}
     >
       <View style={{ height: top + 300 }} />
       <View
@@ -32,6 +35,8 @@ export function LoginPageComponent() {
           Log into your account
         </Text>
 
+        <LoginForm />
+
         <View style={{ gap: 12, marginTop: 32 }}>
           <Text style={{ textAlign: "center" }}>
             You don't have an account yet?
@@ -41,7 +46,7 @@ export function LoginPageComponent() {
           </Link>
         </View>
       </View>
-    </Animated.ScrollView>
+    </Screen>
   );
 }
 
