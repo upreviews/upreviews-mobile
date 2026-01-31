@@ -1,7 +1,5 @@
+import { PhosphorIcon } from "@/assets/icon";
 import { useColors } from "@/hooks/use-colors";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import Octicons from "@expo/vector-icons/Octicons";
 import {
   Icon,
   Label,
@@ -15,28 +13,19 @@ export default function TabLayout() {
   return (
     <NativeTabs backBehavior="none" tintColor={colors.primary}>
       <NativeTabs.Trigger name="index">
-        <Icon src={<VectorIcon family={AntDesign} name="home" />} />
+        <Icon src={<VectorIcon family={PhosphorIcon} name="home" />} />
         <Label>Home</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="movies">
-        <Icon
-          src={<VectorIcon family={MaterialCommunityIcons} name="movie-roll" />}
-        />
+        <Icon src={<VectorIcon family={PhosphorIcon} name="film-reel" />} />
         <Label>Movies</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="tv">
-        <Icon
-          src={
-            <VectorIcon
-              family={MaterialCommunityIcons}
-              name="television-classic"
-            />
-          }
-        />
+        <Icon src={<VectorIcon family={PhosphorIcon} name="television" />} />
         <Label>Series</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="search" role="search">
-        <Icon src={<VectorIcon family={Octicons} name="search" />} />
+        <Icon src={<VectorIcon family={PhosphorIcon} name="search" />} />
         <Label>Search</Label>
       </NativeTabs.Trigger>
     </NativeTabs>
