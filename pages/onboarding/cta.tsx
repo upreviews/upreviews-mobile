@@ -1,4 +1,6 @@
 import { Button } from "@/components/button";
+import { useRouter } from "expo-router";
+import { useCallback } from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import Animated, {
     interpolate,
@@ -22,6 +24,12 @@ export function OnboardingCTA({
 }: OnboardingCTAProps) {
   const { bottom } = useSafeAreaInsets();
 
+  const router = useRouter();
+
+  const handleGetStarted = useCallback(() => {
+    router.push("/login");
+  }, [router]);
+
   return (
     <View style={[styles.container, { bottom: bottom + 20 }]}>
       <View style={styles.dotsWrapper}>
@@ -31,7 +39,12 @@ export function OnboardingCTA({
       </View>
 
       <View style={styles.buttonsWrapper}>
-        <Button style={{ flex: 1 }} appearance="primary" size="large">
+        <Button
+          style={{ flex: 1 }}
+          appearance="primary"
+          size="large"
+          onPress={handleGetStarted}
+        >
           Get Started
         </Button>
         {!isLastIndex && (

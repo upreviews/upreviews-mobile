@@ -38,9 +38,6 @@ export function OnboardingPageComponent() {
         index: currentIndex + 1,
         animated: true,
       });
-    } else {
-      // Last slide action
-      console.log("Navigate to Home");
     }
   };
 
