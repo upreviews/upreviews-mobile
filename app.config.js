@@ -6,6 +6,7 @@ export default {
     orientation: "portrait",
     icon: "./assets/images/icon.png",
     scheme: "upreviews",
+    owner: "upreviews",
     userInterfaceStyle: "automatic",
     newArchEnabled: true,
     splash: {
@@ -16,6 +17,9 @@ export default {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "net.upreviews.app",
+      infoPlist: {
+        ITSAppUsesNonExemptEncryption: false,
+      },
     },
     android: {
       adaptiveIcon: {
@@ -52,6 +56,9 @@ export default {
       ],
     ],
     extra: {
+      eas: {
+        projectId: "e5bfd962-188b-4f74-aa1b-b3d25d940ae9",
+      },
       apiUrl: process.env.EXPO_PUBLIC_API_URL,
       googleWebClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
       googleAndroidClientId: process.env.EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID,
