@@ -4,12 +4,14 @@ import { GoogleAuthButton } from "@/components/google-auth-button";
 import Text from "@/components/text";
 import { TextInput } from "@/components/text-input";
 import { useColors } from "@/hooks/use-colors";
+import { useAuthStore } from "@/stores/use-auth-store";
 import { Link } from "expo-router";
 import { useCallback } from "react";
 import { View } from "react-native";
 
 export function LoginForm() {
   const colors = useColors();
+  const { login } = useAuthStore();
 
   const handleThirdPartyLogin = useCallback(async () => {}, []);
 
@@ -39,7 +41,9 @@ export function LoginForm() {
           </Text>
         </Link>
       </View>
-      <Button appearance="primary">Log in</Button>
+      <Button appearance="primary" onPress={login}>
+        Log in
+      </Button>
 
       <View
         style={{

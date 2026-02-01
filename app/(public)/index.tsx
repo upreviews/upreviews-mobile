@@ -1,4 +1,4 @@
-import { OnboardingPageComponent } from "@/pages/onboarding";
+import { OnboardingPageComponent } from "@/pages/intro";
 
 export default function OnboardingPage() {
   return <OnboardingPageComponent />;
