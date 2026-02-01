@@ -4,14 +4,30 @@ import { GoogleAuthButton } from "@/components/google-auth-button";
 import Text from "@/components/text";
 import { TextInput } from "@/components/text-input";
 import { useColors } from "@/hooks/use-colors";
-import { Link } from "expo-router";
+import * as WebBrowser from "expo-web-browser";
 import { useCallback } from "react";
 import { View } from "react-native";
 
-export function LoginForm() {
+export function SignupForm() {
   const colors = useColors();
 
   const handleThirdPartyLogin = useCallback(async () => {}, []);
+
+  const openTerms = () => {
+    WebBrowser.openBrowserAsync("https://upreviews.net/terms", {
+      dismissButtonStyle: "close",
+      readerMode: true,
+      windowName: "Terms",
+    });
+  };
+
+  const openPrivacyPolicy = () => {
+    WebBrowser.openBrowserAsync("https://upreviews.net/privacy-policy", {
+      dismissButtonStyle: "close",
+      readerMode: true,
+      windowName: "Privacy Plicy",
+    });
+  };
 
   return (
     <View style={{ gap: 24, marginVertical: 32 }}>
@@ -23,23 +39,29 @@ export function LoginForm() {
       <TextInput
         label="Password"
         placeholder="Enter password"
-        autoComplete="current-password"
+        autoComplete="new-password"
         secureTextEntry
       />
-      <View style={{ alignItems: "flex-end" }}>
-        <Link href="/forgot-password" asChild>
-          <Text
-            style={{
-              color: colors.primary,
-              textAlign: "right",
-              paddingLeft: 10,
-            }}
-          >
-            Forgot Password?
-          </Text>
-        </Link>
-      </View>
-      <Button appearance="primary">Log in</Button>
+      <TextInput
+        label="Password Again"
+        placeholder="Enter password again"
+        autoComplete="new-password"
+        secureTextEntry
+      />
+
+      <Text>
+        By signing up, it means you have agreed to our{" "}
+        <Text onPress={openTerms} style={{ color: colors.primary }}>
+          terms
+        </Text>{" "}
+        and{" "}
+        <Text onPress={openPrivacyPolicy} style={{ color: colors.primary }}>
+          privacy policy
+        </Text>
+        .
+      </Text>
+
+      <Button appearance="primary">Sign up</Button>
 
       <View
         style={{

@@ -41,7 +41,7 @@ export function LoginPageComponent() {
           <Text style={{ textAlign: "center" }}>
             You don't have an account yet?
           </Text>
-          <Link href="/signup" replace asChild>
+          <Link href="/signup" asChild>
             <Button>Create Account</Button>
           </Link>
         </View>

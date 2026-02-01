@@ -54,6 +54,12 @@ export default {
           ],
         },
       ],
+      [
+        "expo-web-browser",
+        {
+          experimentalLauncherActivity: true,
+        },
+      ],
     ],
     extra: {
       eas: {

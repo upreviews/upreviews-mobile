@@ -6,7 +6,7 @@ type ButtonStyle = { view: ViewStyle; text: TextStyle };
 
 export const sizeStyles: Record<SizeVariant, ButtonStyle> = {
   small: {
-    view: { paddingHorizontal: 6, height: 36 },
+    view: { paddingHorizontal: 12, height: 36 },
     text: { fontSize: 16 },
   },
   medium: {

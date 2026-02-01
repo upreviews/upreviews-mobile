@@ -5,6 +5,7 @@ import { Link } from "expo-router";
 import { Dimensions, StyleSheet, View } from "react-native";
 import Animated from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SignupForm } from "./form";
 
 const { height } = Dimensions.get("window");
 
@@ -32,9 +33,11 @@ export function SignupPageComponent() {
           Create your free account
         </Text>
 
+        <SignupForm />
+
         <View style={{ gap: 12, marginTop: 32 }}>
           <Text style={{ textAlign: "center" }}>Already have an account?</Text>
-          <Link href="/login" replace asChild>
+          <Link href="/login" dismissTo asChild>
             <Button>Sign In</Button>
           </Link>
         </View>
