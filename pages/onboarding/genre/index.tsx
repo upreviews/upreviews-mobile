@@ -2,13 +2,16 @@ import { Button } from "@/components/button";
 import { Screen } from "@/components/screen";
 import Text from "@/components/text";
 import { Genre } from "@/types/movie";
+import { useRouter } from "expo-router";
 import { useCallback, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import Animated from "react-native-reanimated";
+import { styles } from "../styles";
 import { mockGenres } from "./data";
 import { GenreItem } from "./item";
 
 export function OnboardingGenrePageComponent() {
+  const router = useRouter();
   const [selected, setSelected] = useState(new Set<number>());
 
   const handleSelect = useCallback(
@@ -26,13 +29,15 @@ export function OnboardingGenrePageComponent() {
     [setSelected],
   );
 
+  const onContinue = () => router.push("/onboarding/movies");
+
   const buttonText = `Continue • ${selected.size} selected`;
 
   return (
     <Screen
       contentAfterScrollView={
         <View style={{ padding: 20 }}>
-          <Button>{buttonText}</Button>
+          <Button onPress={onContinue}>{buttonText}</Button>
         </View>
       }
       contentBeforeScrollView={
@@ -58,23 +63,3 @@ export function OnboardingGenrePageComponent() {
     />
   );
 }
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 36,
-    textAlign: "center",
-    fontWeight: "700",
-    letterSpacing: -2,
-    lineHeight: 48,
-  },
-  subtitle: {
-    fontSize: 20,
-    textAlign: "center",
-    fontWeight: "600",
-    letterSpacing: -1,
-  },
-  description: {
-    fontSize: 18,
-    textAlign: "center",
-  },
-});

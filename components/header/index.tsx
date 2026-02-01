@@ -9,8 +9,13 @@ import Text from "../text";
 interface IProps {
   title?: string;
   rightContent?: React.ReactNode;
+  showBackNavigation?: boolean;
 }
-export const Header: FC<IProps> = ({ title, rightContent }) => {
+export const Header: FC<IProps> = ({
+  title,
+  rightContent,
+  showBackNavigation = true,
+}) => {
   const { top } = useSafeAreaInsets();
   const colors = useColors();
 
@@ -25,14 +30,16 @@ export const Header: FC<IProps> = ({ title, rightContent }) => {
     >
       <Link href="../">
         <View style={styles.container}>
-          <Ionicons
-            name={Platform.select({
-              ios: "chevron-back",
-              android: "arrow-back",
-            })}
-            size={24}
-            color={colors.foreground}
-          />
+          {showBackNavigation && (
+            <Ionicons
+              name={Platform.select({
+                ios: "chevron-back",
+                android: "arrow-back",
+              })}
+              size={24}
+              color={colors.foreground}
+            />
+          )}
           {title && <Text style={styles.title}>{title}</Text>}
         </View>
       </Link>

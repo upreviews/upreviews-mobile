@@ -12,7 +12,7 @@ interface BaseProps {
   contentBeforeScrollView?: React.ReactNode;
   contentAfterScrollView?: React.ReactNode;
   headerRightContent?: React.ReactNode;
-  showBottomNav?: boolean;
+  showBackNavigation?: boolean;
 }
 
 type ScreenProps<C extends ElementType> = BaseProps & {
@@ -27,7 +27,7 @@ export function Screen<C extends ElementType = typeof Animated.ScrollView>({
   contentBeforeScrollView,
   contentAfterScrollView,
   headerRightContent,
-  showBottomNav = false,
+  showBackNavigation,
   as,
   ...props
 }: ScreenProps<C>) {
@@ -41,12 +41,16 @@ export function Screen<C extends ElementType = typeof Animated.ScrollView>({
       <KeyboardAvoidingView
         style={[
           styles.container,
-          safeareaTop && !title && { paddingTop: top },
-          !showBottomNav && safeareaBottom && { paddingBottom: bottom },
+          safeareaTop && !title && !headerRightContent && { paddingTop: top },
+          safeareaBottom && { paddingBottom: bottom },
         ]}
       >
         {(!!title || !!headerRightContent) && (
-          <Header title={title} rightContent={headerRightContent} />
+          <Header
+            title={title}
+            rightContent={headerRightContent}
+            showBackNavigation={showBackNavigation}
+          />
         )}
         {contentBeforeScrollView}
         <ScrollComponent

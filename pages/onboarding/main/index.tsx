@@ -1,13 +1,14 @@
 import { Button } from "@/components/button";
 import Text from "@/components/text";
 import { Link } from "expo-router";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import Animated, {
-    Easing,
-    FadeInDown,
-    FadeInUp,
+  Easing,
+  FadeInDown,
+  FadeInUp,
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { styles } from "../styles";
 
 export function OnboardingMainPageComponent() {
   return (
@@ -56,23 +57,3 @@ export function OnboardingMainPageComponent() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 36,
-    textAlign: "center",
-    fontWeight: "700",
-    letterSpacing: -2,
-    lineHeight: 48,
-  },
-  subtitle: {
-    fontSize: 20,
-    textAlign: "center",
-    fontWeight: "600",
-    letterSpacing: -1,
-  },
-  description: {
-    fontSize: 18,
-    textAlign: "center",
-  },
-});
