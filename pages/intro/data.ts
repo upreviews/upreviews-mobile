@@ -1,6 +1,6 @@
-import { OnboardingData } from "./types";
+import { IntroData } from "./types";
 
-export const onboardingData: Array<OnboardingData> = [
+export const introData: Array<IntroData> = [
   {
     title: "Your Next Favorite Movie Is Waiting",
     description: "Stop scrolling endlessly. Find movies worth your time.",

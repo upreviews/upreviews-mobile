@@ -1,4 +1,4 @@
-export interface OnboardingData {
+export interface IntroData {
   title: string;
   description: string;
 }

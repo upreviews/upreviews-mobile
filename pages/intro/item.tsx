@@ -1,14 +1,14 @@
 import Text from "@/components/text";
 import { Dimensions, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { OnboardingData } from "./types";
+import { IntroData } from "./types";
 
 const { width, height } = Dimensions.get("window");
 
-interface OnboardingItemProps {
-  data: OnboardingData;
+interface IntroItemProps {
+  data: IntroData;
 }
-export function OnboardingItem({ data }: OnboardingItemProps) {
+export function IntroItem({ data }: IntroItemProps) {
   return (
     <View style={{ width, height }}>
       <SafeAreaView style={{ flex: 1 }}>

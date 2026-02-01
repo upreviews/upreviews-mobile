@@ -3,25 +3,21 @@ import { useRouter } from "expo-router";
 import { useCallback } from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import Animated, {
-    interpolate,
-    SharedValue,
-    useAnimatedStyle,
+  interpolate,
+  SharedValue,
+  useAnimatedStyle,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { onboardingData } from "./data";
+import { introData } from "./data";
 
 const { width } = Dimensions.get("window");
 
-interface OnboardingCTAProps {
+interface IntroCTAProps {
   scrollX: SharedValue<number>;
   handleNext: () => void;
   isLastIndex: boolean;
 }
-export function OnboardingCTA({
-  scrollX,
-  handleNext,
-  isLastIndex,
-}: OnboardingCTAProps) {
+export function IntroCTA({ scrollX, handleNext, isLastIndex }: IntroCTAProps) {
   const { bottom } = useSafeAreaInsets();
 
   const router = useRouter();
@@ -33,7 +29,7 @@ export function OnboardingCTA({
   return (
     <View style={[styles.container, { bottom: bottom + 20 }]}>
       <View style={styles.dotsWrapper}>
-        {onboardingData.map((_, index) => {
+        {introData.map((_, index) => {
           return <Dot key={index} index={index} scrollX={scrollX} />;
         })}
       </View>

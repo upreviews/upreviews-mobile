@@ -2,17 +2,17 @@ import { useColors } from "@/hooks/use-colors";
 import { useRef, useState } from "react";
 import { View } from "react-native";
 import Animated, {
-    useAnimatedScrollHandler,
-    useSharedValue,
+  useAnimatedScrollHandler,
+  useSharedValue,
 } from "react-native-reanimated";
-import { OnboardingCTA } from "./cta";
-import { onboardingData } from "./data";
-import { OnboardingItem } from "./item";
-import { OnboardingData } from "./types";
+import { IntroCTA } from "./cta";
+import { introData } from "./data";
+import { IntroItem } from "./item";
+import { IntroData } from "./types";
 
-export function OnboardingPageComponent() {
+export function IntroPageComponent() {
   const colors = useColors();
-  const flatListRef = useRef<Animated.FlatList<OnboardingData>>(null);
+  const flatListRef = useRef<Animated.FlatList<IntroData>>(null);
   const scrollX = useSharedValue(0);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -33,7 +33,7 @@ export function OnboardingPageComponent() {
   }).current;
 
   const handleNext = () => {
-    if (currentIndex < onboardingData.length - 1) {
+    if (currentIndex < introData.length - 1) {
       flatListRef.current?.scrollToIndex({
         index: currentIndex + 1,
         animated: true,
@@ -49,9 +49,9 @@ export function OnboardingPageComponent() {
         position: "relative",
       }}
     >
-      <OnboardingCTA
+      <IntroCTA
         scrollX={scrollX}
-        isLastIndex={currentIndex === onboardingData.length - 1}
+        isLastIndex={currentIndex === introData.length - 1}
         handleNext={handleNext}
       />
       <Animated.FlatList
@@ -61,11 +61,11 @@ export function OnboardingPageComponent() {
         scrollEventThrottle={16}
         onViewableItemsChanged={onViewableItemsChanged}
         viewabilityConfig={viewConfig}
-        data={onboardingData}
+        data={introData}
         onScroll={onScroll}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(_, index) => index.toString()}
-        renderItem={({ item }) => <OnboardingItem data={item} />}
+        renderItem={({ item }) => <IntroItem data={item} />}
       />
     </View>
   );
