@@ -1,17 +1,11 @@
 import { useColors } from "@/hooks/use-colors";
-import React, { FC } from "react";
-import {
-    KeyboardAvoidingView,
-    ScrollViewProps,
-    StyleSheet,
-    View,
-} from "react-native";
+import React, { ComponentPropsWithoutRef, ElementType } from "react";
+import { KeyboardAvoidingView, StyleSheet, View } from "react-native";
 import Animated from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Header } from "../header";
 
-interface IProps extends ScrollViewProps {
-  children: React.ReactNode;
+interface BaseProps {
   title?: string;
   safeareaTop?: boolean;
   safeareaBottom?: boolean;
@@ -20,9 +14,13 @@ interface IProps extends ScrollViewProps {
   headerRightContent?: React.ReactNode;
   showBottomNav?: boolean;
 }
-export const Screen: FC<IProps> = ({
+
+type ScreenProps<C extends ElementType> = BaseProps & {
+  as?: C;
+} & Omit<ComponentPropsWithoutRef<C>, keyof BaseProps>;
+
+export function Screen<C extends ElementType = typeof Animated.ScrollView>({
   title,
-  scrollEnabled = true,
   safeareaTop = true,
   safeareaBottom = true,
   children,
@@ -30,10 +28,13 @@ export const Screen: FC<IProps> = ({
   contentAfterScrollView,
   headerRightContent,
   showBottomNav = false,
+  as,
   ...props
-}) => {
+}: ScreenProps<C>) {
   const { top, bottom } = useSafeAreaInsets();
   const colors = useColors();
+
+  const ScrollComponent = as || Animated.ScrollView;
 
   return (
     <View style={[styles.wrapper, { backgroundColor: colors.background }]}>
@@ -48,20 +49,19 @@ export const Screen: FC<IProps> = ({
           <Header title={title} rightContent={headerRightContent} />
         )}
         {contentBeforeScrollView}
-        <Animated.ScrollView
-          scrollEnabled={scrollEnabled}
+        <ScrollComponent
           keyboardDismissMode="interactive"
           keyboardShouldPersistTaps="handled"
           automaticallyAdjustKeyboardInsets
           {...props}
         >
           {children}
-        </Animated.ScrollView>
+        </ScrollComponent>
         {contentAfterScrollView}
       </KeyboardAvoidingView>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   wrapper: {
